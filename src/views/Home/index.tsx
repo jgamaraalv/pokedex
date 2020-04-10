@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Error from "../../components/Error";
 import Loader from "../../components/Loader";
+import Topbar from "../../components/Topbar";
 import ApplicationState from "../../store/State";
 import { API_URL } from "../../config/env";
 import { fetchPokemons } from "../../store/modules/home/actions";
@@ -55,20 +56,24 @@ const Home: React.FC = () => {
   }
 
   return (
-    <StyledContainer>
-      <StyledCardList>
-        {contentRender}
-      </StyledCardList>
-      
-      {homeState.pokemons.status === "loaded" && (
-        <StyledPagination
-          disableNextButton={!homeState.pokemons.next}
-          disablePrevButton={!homeState.pokemons.previous}
-          onNextPageRequest={nextPageRequestHandler}
-          onPrevPageRequest={prevPageRequestHandler}
-        />
-      )}
-    </StyledContainer>
+    <>
+      <Topbar/>
+    
+      <StyledContainer>
+        <StyledCardList>
+          {contentRender}
+        </StyledCardList>
+        
+        {homeState.pokemons.status === "loaded" && (
+          <StyledPagination
+            disableNextButton={!homeState.pokemons.next}
+            disablePrevButton={!homeState.pokemons.previous}
+            onNextPageRequest={nextPageRequestHandler}
+            onPrevPageRequest={prevPageRequestHandler}
+          />
+        )}
+      </StyledContainer>
+    </>
   );
 };
 
