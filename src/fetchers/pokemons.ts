@@ -4,14 +4,8 @@ export const getPokemonsData = async (pokemons: Pokemon[]) => {
   const pokemonsWithData = await Promise.all(
     pokemons.map(async (pokemon: Pokemon) => {
       const pokemonData = await fetchData(pokemon.url);
-
-      const pokemonAbilities = await Promise.all(
-        pokemonData.abilities.map(async (ability: PokemonAbility) => await fetchData(ability.ability.url))
-      );
-      
-      const pokemonForms = await Promise.all(
-        pokemonData.forms.map(async (form: PokemonForm) => await fetchData(form.url))
-      );
+      const pokemonAbilities = await fetchUrls(pokemonData.abilities.map((ability: PokemonAbility) => ability.ability.url));
+      const pokemonForms = await fetchUrls(pokemonData.forms.map((form: PokemonForm) => form.url));
 
       return {
         ...pokemonData,
@@ -24,8 +18,13 @@ export const getPokemonsData = async (pokemons: Pokemon[]) => {
   return pokemonsWithData;
 }
 
+const fetchUrls = (array: string[]) => {
+  return Promise.all(array.map(async (url) => await fetchData(url)))
+}
+
 export const fetchData = async (url: string) => {
   const pokemonsPromise = await fetch(url);
   const pokemonsResponse = await pokemonsPromise.json();
+
   return pokemonsResponse;
 }
