@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 import { Blue, White } from "../../styles/palette";
+import { md } from "../../styles/breakpoints";
 
 const buttonStyles = css`
   background: ${Blue.dark};
@@ -19,12 +20,22 @@ const buttonStyles = css`
 `;
 
 export const StyledContainer = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  @media ${md} {
+    display: block;
+    text-align: center;
+  }
 `;
 
 export const StyledNextButton = styled.button`
   ${buttonStyles};
-  margin-left: 12px;
+  margin: 12px 0 0 0;
+
+  @media ${md} {
+    margin: 0 0 0 12px;
+  }
 `;
 
 export const StyledPrevButton = styled.button`
