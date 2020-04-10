@@ -12,9 +12,9 @@ export const StyledContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  -webkit-box-shadow: 0px 5px 3px -3px ${Shadow.light};
-  -moz-box-shadow: 0px 5px 3px -3px ${Shadow.light};
-  box-shadow: 0px 5px 3px -3px ${Shadow.light};
+  -webkit-box-shadow: 0px 0px 5px 0px ${Shadow.light};
+  -moz-box-shadow: 0px 0px 5px 0px ${Shadow.light};
+  box-shadow: 0px 0px 5px 0px ${Shadow.light};
 `;
 
 export const StyledCardPhotoContainer = styled.div`

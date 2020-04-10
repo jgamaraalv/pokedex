@@ -16,7 +16,7 @@ export const Purple = {
 }
 
 export const Shadow = {
-  light: "rgba(0,0,0,0.35)",
+  light: "rgba(0,0,0,0.20)",
 }
 
 export const White = {
