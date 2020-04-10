@@ -10,15 +10,26 @@ export interface PokemonAbility {
   };
 }
 
+export interface PokemonAbilityWithData {
+  name: string;
+}
+
 export interface PokemonForm {
   name: string;
   url: string;
 }
 
+export interface PokemonFormWithData {
+  id: number;
+}
+
 export interface PokemonWithData {
-  abilities: PokemonAbility[];
-  forms: PokemonForm[];
+  abilities: PokemonAbilityWithData[];
+  forms: PokemonFormWithData[];
   height: number;
   name: string;
+  sprites: {
+    front_default: string;
+  }
   weight: number;
 }

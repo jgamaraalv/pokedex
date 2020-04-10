@@ -1,12 +1,12 @@
 import AsyncState from "../../../types/AsyncState";
-import { Pokemon } from "../../../types/Pokemon";
+import { PokemonWithData } from "../../../types/Pokemon";
 
 type HomeModuleState = {
   pokemons: AsyncState<{
     count: number;
     next: string | null;
     previous: string | null; 
-    results: Pokemon[];
+    results: PokemonWithData[];
   }>;
 };
 
