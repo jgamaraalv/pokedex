@@ -1,5 +1,3 @@
-![do](https://media.giphy.com/media/rAm0u2k17rM3e/giphy.gif)
-
 A simple Pokemon repository to list Pokemons and their characteristics.
 
 ## API
